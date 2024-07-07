@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col    md:w-2/3 mx-auto">
+  <div class="flex flex-col  p-10  md:w-2/3 mx-auto">
     <InputForm class="my-20"></InputForm>
-    <div class="flex justify-start space-x-10 ">
+    <div class="grid grid-cols-1 md:gird-col-3 gap-12">
       <input type="text" placeholder="title" class="input input-bordered" v-model="listTitleFilter" />
       <input type="text" placeholder="description" class="input input-bordered" v-model="listContentFilter" />
       <select class="select  select-bordered" v-model="listStateFilter">
@@ -11,7 +11,7 @@
       </select>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-2 gap-12 my-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 my-20">
       <div v-for="task  in filterdList" :key="task.id">
         <ListCard v-if="task?.id" v-bind="task" @update="(val: string) => updateState(task.id, val)"></ListCard>
       </div>
